@@ -1,3 +1,5 @@
+var name = "calculator"
+
 function sum(a,b){
     return a + b;
 }
@@ -18,5 +20,6 @@ module.exports = {
     sum,
     mult,
     sub,
-    div
+    div,
+    name
 };
