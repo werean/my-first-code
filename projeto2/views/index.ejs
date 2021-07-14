@@ -5,13 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia de perguntas</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <img src="/public/images/logo.png" alt="">
 </head>
 <body>
+
     <H1>guia perguntas!!</H1>
     <hr>
     <H3>lista de perguntas</H3>
-    
 
+    
     <p>Nome: <%= nome %></p>
 <p>Linguaguem favorita: <%= lang %></p>
 <p>Empresa: <%= empresa %></p>
@@ -22,6 +25,12 @@
 <%} else { %>
    <h3>Nenhum erro!!</h3>
 <%}%>
+
+<% produtos.forEach(function(produtos) { %>
+<hr>
+<h3><%= produtos.nome %></h3>
+<h4><%= produtos.preco %></h4>
+<% }) %>
 
 </body>
 </html>
