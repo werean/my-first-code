@@ -1,6 +1,32 @@
 h1{
-    color: rgb(136, 118, 118);
+    color: rgb(88, 0, 0);
 }
 body{
-    background-color: rgb(199, 179, 153);
+    background-color: rgb(201, 199, 196);
 }
+
+/* label{
+    margin-left:  1%;
+} */
+#formulario-pergunta {
+    margin-top: 5vh;
+    color: rgb(0, 0, 0);
+}
+
+label {
+    margin-left: 1vh;
+}
+
+.form-control {
+    margin-left: 1vh;
+    
+}
+
+button {
+    margin-left: 60vh;
+    margin-bottom: 5vh;
+
+}
+
+
+
