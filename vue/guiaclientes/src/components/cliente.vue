@@ -1,9 +1,9 @@
 <template>
   <div id="Cliente">
-    <h2>Cliente aqui - componente aqui xd</h2>
-    <h1>QUALQUER COISA</h1>
-    <h2>dhuawhduawhdu</h2>
-    <h2>11111</h2>
+    <h2 id="Cliente-nome">Cliente aqui - componente aqui xd</h2>
+    <h3>Descrição do cliente: aa</h3>
+    <hr>
+    
   </div>
 </template>
 
@@ -15,6 +15,9 @@ export default {};
 #Cliente {
   color: crimson;
   background-color: cyan;
+  max-width: 600px;
+  height: 120px;
+
 }
 
 #Cliente-nome {

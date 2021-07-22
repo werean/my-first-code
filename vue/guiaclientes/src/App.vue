@@ -2,6 +2,9 @@
   <div id="app">
     <h1>Guia Clientes</h1>
     <Cliente />
+    <Cliente />
+    <Cliente />
+    <Cliente />
   </div>
 </template>
 
