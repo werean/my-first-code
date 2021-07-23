@@ -1,18 +1,15 @@
 <template>
-  <div class="about">
-    <h1></h1>
-  </div>
+  <div class="about"></div>
 </template>
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "App",
+};
 </script>
 
 <style>
 #app {
   front-family: Avanir, Helvetica, Arial, sans-serif;
-
 }
 </style>

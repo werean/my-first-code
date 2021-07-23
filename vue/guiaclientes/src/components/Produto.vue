@@ -1,12 +1,10 @@
 <template>
-  <div></div>
+  <div>
+    <p>{{ product }}</p>
+  </div>
 </template>
 
 <script>
-import { defineComponent } from "@vue/composition-api";
-
-export default defineComponent({
-  setup() {},
-});
+export default {};
 </script>
 <style scoped></style>

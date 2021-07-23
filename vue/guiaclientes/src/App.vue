@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <h1>Guia Clientes</h1>
-    <Cliente />
-    <Cliente />
-    <Cliente />
-    <Cliente />
+    <input type="text" v-model="nomedovictor" />
+    <Cliente cliente="" />
+    <Cliente nome="Lucas" email="lucas@gmail.com" numero="55" />
+    <Cliente nome="Andre" email="andre@gmail.com" numero="100" />
+    <Cliente nome="Adriano" />
   </div>
 </template>
 
 <script>
-import Cliente from "./components/cliente.vue";
+import Cliente from "./components/Cliente.vue";
 export default {
   name: "App",
+  data() {
+    return {
+      nomedovictor: "j. victor o. lima",
+      clientevictor: {
+        nome: "victor lima",
+        email: "victor@gmail.com",
+      },
+    };
+  },
   components: {
     Cliente,
   },
