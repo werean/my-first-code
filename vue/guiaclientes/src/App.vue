@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <input type="text" v-model="nomedovictor" />
-    <Cliente cliente="" />
-    <Cliente nome="Lucas" email="lucas@gmail.com" numero="55" />
-    <Cliente nome="Andre" email="andre@gmail.com" numero="100" />
-    <Cliente nome="Adriano" />
+    <input type="text" v-model="clientevictor.nome" />
+    <input type="text" v-model="clientevictor.email" />
+    <Cliente :cliente="clientevictor" :showage="true" />
+    <Cliente :cliente="clientevictor" :showage="true" />
+    <Cliente :cliente="clientevictor" :showage="false" />
+    <Cliente :cliente="clientevictor" :showage="false" />
   </div>
 </template>
 
@@ -18,6 +19,7 @@ export default {
       clientevictor: {
         nome: "victor lima",
         email: "victor@gmail.com",
+        idade: 99,
       },
     };
   },

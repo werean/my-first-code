@@ -1,12 +1,10 @@
 <template>
-  <div id="Cliente">
-    <h4>nome: {{ nome }}</h4>
+  <div class="cliente-premium">
+    <h4>nome: {{ cliente.nome }}</h4>
     <hr />
-    <p>{{ descricao }}</p>
-    <hr />
-    <p>numero: {{ cliente.numero }}</p>
     <p>email: {{ cliente.email }}</p>
-    <p>idade: {{ cliente.idade }}</p>
+    <p v-if="showage == true">idade: {{ cliente.idade }}</p>
+    <p v-else>O usuario escondeu a idade</p>
   </div>
 </template>
 
@@ -14,15 +12,12 @@
 export default {
   data() {
     return {
-      idade: 22,
-      descricao: "Hyoh",
+      ispremium: false,
     };
   },
   props: {
-    nome: String,
-    email: String,
-    numero: Number,
     cliente: Object,
+    showage: Boolean,
   },
 };
 </script>
@@ -36,7 +31,12 @@ export default {
   margin-top: 1%;
 }
 
-#Cliente-nome {
-  color: darkorange;
+#cliente-premium {
+  background: black;
+  color: yellowgreen;
+  max-width: 600px;
+  height: 180px;
+  padding: 1%;
+  margin-top: 2%;
 }
 </style>
