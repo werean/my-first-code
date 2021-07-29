@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ client: !ispremium, 'client-premium': ispremium }">
+  <div :class="{ client: !isPremium, 'client-premium': isPremium }">
     <h4>name: {{ client.name }}</h4>
     <hr />
     <p>email: {{ client.email }}</p>
@@ -13,7 +13,7 @@
 
     <p v-if="checked === true">idade: {{ client.age }}.</p>
 
-    <p v-else-if="client.sex === 'F' && client.age >= 60">
+    <p  v-else-if="client.sex === 'F' && client.age >= 60">
       A senhora preferiu ocultar a idade
     </p>
     <p v-else-if="client.sex === 'F' && client.age < 10">
@@ -36,6 +36,7 @@
     <p v-if="message === 'Nao sou programador'">User</p>
     <p v-if="message === 'É programador'">Bem vindo mestre.</p>
     <p v-else>Observação sobre o individuo: {{ message }}.</p>
+    <q-btn @click="changeUser">Alterar User/>
   </div>
 </template>
 
@@ -43,13 +44,18 @@
 export default {
   data() {
     return {
-      ispremium: true,
+      isPremium: true,
     };
   },
   props: {
     client: Object,
     checked: Boolean,
     message: String,
+  },
+  methods: {
+    changeUser: function () {
+      this.isPremium = !this.isPremium;
+    },
   },
 };
 </script>
@@ -62,7 +68,9 @@ export default {
   padding: 1%;
   margin-top: 1%;
 }
-
+.Button {
+  background-color: rgb(167, 18, 18);
+}
 .client-premium {
   background: black;
   color: yellowgreen;

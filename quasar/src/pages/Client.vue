@@ -1,24 +1,15 @@
 <template>
-  <div id="app">
-    <!-- abaixo esse "v-for" lê uma lista de dados e exibe de maneira dinamica -->
-
-  </div>
+  <q-page class="flex flex-center">
+    <ClientComponet
+          v-bind="name1"
+    />
+  </q-page>
 </template>
 
 <script>
-import Client from "./components/Client.vue";
-export default {
-  name: "App",
-  data() {
-    return {
-      admin: {
-        name: "lucas",
-        sex: "M",
-        email: "lucas@gmail.com",
-        age: 99,
-        showAge: true,
-      },
-      clients: [
+import ClientComponet from 'components/Client.vue'
+
+const clients = [
         {
           id: 22,
           name: "lucas",
@@ -51,13 +42,16 @@ export default {
           age: 35,
           showAge: false,
         },
-      ],
-    };
-  },
-  components: {
-    Client,
-  },
-};
-</script>
+      ]
+var name1 = 'Caralho de Teste'
+import { defineComponent } from 'vue';
 
-<style scoped></style>
+export default defineComponent({
+  name: 'ClientList',
+  components: {
+    ClientComponet
+  },
+
+
+})
+</script>
