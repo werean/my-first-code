@@ -3,7 +3,7 @@
     <h4>name: {{Client.name }}</h4>
     <hr>
     <p>email: {{ Client.email }}</p>
-    <client/>
+    <client/>66
 
   </div>
 </template>
