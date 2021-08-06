@@ -1,43 +1,44 @@
 
 <template>
-<div class="q-pa-md" id="Title">
+<div  id="Title">
 <h2>Ficha de cadastro</h2>
 </div>
 <!-- se precisar colocar "v-model" -->
 <body>
-<div class="q-pa-md">
     <div class="q-gutter-md"  >
       <h5 id="Sub-title">Dados do usuário</h5>
-      <q-input type="text" placeholder="name" color="orange-10" class="input" square filled label="Nome" />
+      <q-input type="text" placeholder="name" color="orange-10" v-model="nameField" class="input" square filled label="Nome" />
 
-      <q-input color="orange-10" class="input" square filled label="Sobrenome" />
+      <q-input color="orange-10" v-model="lastNameField" class="input" square filled label="Sobrenome" />
 
-      <q-input color="orange-10" class="input" square filled label="CPF" />
+      <q-input color="orange-10" v-model="cpfField" class="input" square filled label="CPF" />
 
-      <q-input color="orange-10" class="input" square filled label="Telefone" />
+      <q-input color="orange-10" v-model="foneFIeld" class="input" square filled label="Telefone" />
 
-      <q-input color="orange-10" class="input" square filled label="Celular" />
+      <q-input color="orange-10" v-model="celField" class="input" square filled label="Celular" />
 
-      <q-input color="orange-10" class="input" square filled label="Data de Nascimento">
+      <q-input color="orange-10" v-model="birthField" class="input" square filled label="Data de Nascimento">
         <template v-slot:append>
           <q-icon name="event" color="orange-10" />
         </template>
       </q-input><br>
 
       <h5 id="Sub-title">Endereço de entrega</h5>
-      <q-input color="orange-10" class="input"  square filled label="CEP" />
+      <q-input color="orange-10" v-model="cepField" class="input" square filled label="CEP" />
 
-      <q-input color="orange-10" class="input" square filled label="Rua" />
+      <q-input color="orange-10" v-model="streetField" class="input" square filled label="Rua" />
 
-      <q-input color="orange-10" class="input" square filled label="Número" />
+      <q-input color="orange-10" v-model="streetNumberField" class="input" square filled label="Número" />
 
-      <q-input color="orange-10" class="input" square filled label="Complemento" />
+      <q-input color="orange-10" v-model="complementField" class="input" square filled label="Complemento" />
 
-      <q-input color="orange-10" class="input" square filled label="Bairro" />
+      <q-input color="orange-10" v-model="districtField" class="input" square filled label="Bairro" />
 
-      <q-input color="orange-10" class="input" square filled label="Cidade" />
+      <q-input color="orange-10" v-model="cityField" class="input" square filled label="Cidade" />
 
-      <q-input color="orange-10" class="input" square filled label="Estado" />
+      <q-input color="orange-10" v-model="stateField" class="input" square filled label="Estado" />
+      <div v-for="(Client) in Clients" :key="Client.id">
+        <client :Client="Client"/>
     </div>
   </div>
 
@@ -49,28 +50,12 @@
 
 
   <q-btn id="buttom-back" round color="black" icon="west" />
-  <q-btn id="buttom-up" round color="black" icon="north" @click="topFunction()" />
+
 
 
 </div>
-<div id="buttom"><q-btn position: color="orange-10" label="Próximo"/></div>
+<div @click="registerUser" id="buttom"><q-btn position: color="orange-10" label="Cadastrar"/></div>
   </body>
-
-  <q-card class="my-card">
-      <q-card-section align="center" class="bg-purple text-white">
-        <div class="text-h6">Avalie para liberar o pagamento!</div>
-        <span class="material-icons">thumb_up</span>
-        <div class="text-subtitle2">Atendimento,
-          tempo de entrega e
-          qualidade do serviço.
-        </div>
-      </q-card-section>
-
-      <q-card-actions align="around">
-        <q-btn flat>Avaliar</q-btn>
-        <q-btn flat>Talvez mais tarde</q-btn>
-      </q-card-actions>
-    </q-card>
 </template>
 
 
@@ -82,45 +67,52 @@
 
 
 <script>
-import { defineComponent } from '@vue/composition-api'
-import ajax from 'ajax'
-var mybutton = document.getElementById("Title");
+import Client from "./components/Client.vue";
+export default {
+  name: "App",
+  data() {
+    return {
+      nameField: "",
+      lastNameField: "",
+      cpfField: "",
+      foneFIeld:"",
+      celField:"",
+      birthField:"",
+      cepField: '',
+      streetField:"",
+      streetNumberField:"",
+      complementField:"",
+      districtField:"",
+      cityField:"",
+      stateField:"",
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+      Clients: [
 
-function scrollFunction(el) {
-  console.log(document.documentElement.scrollTop)
-  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  console.log(document.documentElement.scrollTop)
-  for(var i=document.documentElement.scrollTop ; i >= 1 ; i--)
-  {
-
-    document.documentElement.scrollTop = i;
-  }
-
-
-}
-
-export default defineComponent({
-
-  setup() {
-return{
-  topFunction,
-}
+      ],
+    };
   },
-})
-
-import userRegister from "./components/Register.vue"
+  components: {
+    Client,
+  },
+  methods: {
+    registerUser: function (){
+      this.Clients.push({name: this.nameField,
+      lastName: this.lastNameField,
+       cpf: this.cpfField,
+        fone: this.foneFIeld,
+         cel: this.celField,
+         birthday: this.birthField,
+         cep: this.cepField,
+         street: this.streetField,
+         streetNumber: this.streetNumberField,
+         complement: this.complementField,
+         district: this.districtField,
+         city: this.cityField,
+         state: this.stateField,
+           id: Date.now()})
+    }
+  }
+};
 </script>
 
 
@@ -132,6 +124,7 @@ import userRegister from "./components/Register.vue"
 
 
 <style scoped>
+
 #Title {
 background-color:orangered;
 color:black;

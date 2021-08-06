@@ -1,22 +1,52 @@
 <template>
-  <div :class="{ Client: !isPremium,'Client-premium': isPremium}" >
-    <h4>name: {{Client.name }}</h4>
-    <hr>
-    <p>email: {{ Client.email }}</p>
-    <client/>66
-
+<div class="q-gutter-md">
+  <div :class="{ Client: !isPremium, 'Client-premium': isPremium }">
+    <h5>Ficha de cadastro</h5>
+    <p>name: {{ Client.name }}</p>
+    <p>lastName: {{ Client.lastName }}</p>
+    <p>cpf: {{ Client.CPF }}</p>
+    <p>fone: {{ Client.fone }}</p>
+    <p>cel: {{ Client.cel }}</p>
+    <p>birthday: {{ Client.birth }}</p>
+    <p>CEP: {{ Client.cep}} </p>
+    <p>street: {{ Client.street}}</p>
+    <p>streetNumber: {{Client.streetNumber}}</p>
+    <p>complement: {{ Client.complement }}</p>
+    <p>district: {{ Client.district}}</p>
+    <p>city: {{ Client.city}}</p>
+    <p>state: {{ Client.state }} </p>
+    </div>
   </div>
+
 </template>
 
 <script>
 export default {
-  setup() {
+  data() {
     return {
       isPremium: true,
     };
   },
   props: {
-    Client: Object
-  }
-}
+    Client: Object,
+    checked: Boolean,
+    message: String,
+  },
+  methods: {
+    changeUser: function () {
+      this.isPremium = !this.isPremium;
+    },
+  },
+};
 </script>
+
+<style scoped>
+.Client-premium {
+  background-color: black;
+  max-width: 600px;
+  height: 650px;
+  padding: 5%;
+  margin-top: 2%;
+}
+
+</style>
