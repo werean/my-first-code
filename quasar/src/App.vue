@@ -5,8 +5,11 @@
 </div>
 <!-- se precisar colocar "v-model" -->
 <body>
+<h1><small id="error" v-show="notFound" >Dados invalidos!</small></h1>
+
     <div class="q-gutter-md"  >
       <h5 id="Sub-title">Dados do usuário</h5>
+
       <q-input type="text" placeholder="name" color="orange-10" v-model="nameField" class="input" square filled label="Nome" />
 
       <q-input color="orange-10" v-model="lastNameField" class="input" square filled label="Sobrenome" />
@@ -72,6 +75,7 @@ export default {
   name: "App",
   data() {
     return {
+      notFound: false,
       nameField: "",
       lastNameField: "",
       cpfField: "",
@@ -96,10 +100,13 @@ export default {
   },
   methods: {
     registerUser: function (){
-      this.Clients.push({name: this.nameField,
+    if(this.nameField == "" || this.cpfField == "" || this.foneField == "" || this.celField == "" || this.birthField == "" || this.cepField == "" || this.streetField == "" || this.streetNumberField == "" || this.complementField == "" || this.districtField == "" || this.cityField == "" || this.stateField == "" || this.nameField.length < 3 ){
+      this.notFound = true;
+      }else{
+    this.Clients.push({name: this.nameField,
       lastName: this.lastNameField,
        cpf: this.cpfField,
-        fone: this.foneFIeld,
+        fone: this.foneField,
          cel: this.celField,
          birthday: this.birthField,
          cep: this.cepField,
@@ -110,6 +117,22 @@ export default {
          city: this.cityField,
          state: this.stateField,
            id: Date.now()})
+           this.nameField = "";
+           this.lastNameField ="";
+           this.cpfField = "";
+           this.foneField = "";
+           this.celField = "";
+           this.birthdayField = "";
+           this.cepField = "";
+           this.streetField = "";
+           this.streetNumberField = "";
+           this.complementField = "";
+           this.districtField = "";
+           this.cityField = "";
+           this.stateField = "";
+           this.notFound = falsefor
+    }
+
     }
   }
 };
@@ -184,6 +207,10 @@ text-align: center;
 #my-card {
   text-align: center;
 
+}
+
+#error {
+  color: red;
 }
 
 

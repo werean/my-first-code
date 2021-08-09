@@ -36,6 +36,10 @@ export default {
     changeUser: function () {
       this.isPremium = !this.isPremium;
     },
+    eventDelet: function {
+      console.log("É o deletas")
+      this.$emit("deleted")
+    }
   },
 };
 </script>
