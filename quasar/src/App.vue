@@ -41,7 +41,7 @@
 
       <q-input color="orange-10" v-model="stateField" class="input" square filled label="Estado" />
       <div v-for="(Client) in Clients" :key="Client.id">
-        <client :Client="Client"/>
+        <client :Client="Client" @delet="deletUser"/>
     </div>
   </div>
 
@@ -130,8 +130,11 @@ export default {
            this.districtField = "";
            this.cityField = "";
            this.stateField = "";
-           this.notFound = falsefor
-    }
+           this.notFound = false
+           }
+        },
+        deletUser: function() {
+      console.log("me deleto porra");
 
     }
   }

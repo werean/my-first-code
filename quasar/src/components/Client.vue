@@ -15,6 +15,7 @@
     <p>district: {{ Client.district}}</p>
     <p>city: {{ Client.city}}</p>
     <p>state: {{ Client.state }} </p>
+    <button @click="eventDelet"> Deletar</button>
     </div>
   </div>
 
@@ -36,11 +37,11 @@ export default {
     changeUser: function () {
       this.isPremium = !this.isPremium;
     },
-    eventDelet: function {
-      console.log("É o deletas")
-      this.$emit("deleted")
-    }
+    eventDelet: function() {
+      console.log("é o deletas")
+      this.$emit("delet")}
   },
+
 };
 </script>
 
