@@ -133,8 +133,10 @@ export default {
            this.notFound = false
            }
         },
-        deletUser: function() {
+        deletUser: function($event) {
       console.log("me deleto porra");
+      console.log($event);
+      
 
     }
   }

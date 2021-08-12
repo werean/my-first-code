@@ -39,7 +39,7 @@ export default {
     },
     eventDelet: function() {
       console.log("é o deletas")
-      this.$emit("delet")}
+      this.$emit("delet",{,component: this})}
   },
 
 };
