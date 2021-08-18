@@ -1,16 +1,17 @@
 
 <template>
 <div  id="Title">
-<h2>Ficha de cadastro</h2>
+<h2>Pagamento</h2>
 </div>
 <!-- se precisar colocar "v-model" -->
 <body>
 <h1><small id="error" v-show="notFound" >Dados invalidos!</small></h1>
 
     <div class="q-gutter-md"  >
-      <h5 id="Sub-title">Dados do usuário</h5>
 
-      <q-input type="text" placeholder="name" color="orange-10" v-model="nameField" class="input" square filled label="Nome" />
+      <br><br><h5 id="Sub-title">Dados do usuário</h5>
+
+      <q-input type="text" placeholder="name" color="orange-10" v-model="nameField" class="input" square filled label="Nome"/>
 
       <q-input color="orange-10" v-model="lastNameField" class="input" square filled label="Sobrenome" />
 
@@ -40,14 +41,45 @@
       <q-input color="orange-10" v-model="cityField" class="input" square filled label="Cidade" />
 
       <q-input color="orange-10" v-model="stateField" class="input" square filled label="Estado" />
+
+      <br><h5 id="Sub-title">Dados do cartão de crédito</h5>
+
+      <q-input color="orange-10" v-model="stateField" class="input" square filled label="Numero" />
+
+      <q-input color="orange-10" v-model="stateField" class="input" square filled label="Nome do titular" />
+
+      <q-input color="orange-10" v-model="birthField" class="input" square filled label="Validade">
+      <template v-slot:append>
+          <q-icon name="event" color="orange-10" />
+        </template>
+      </q-input>
+
+      <q-input color="orange-10" v-model="stateField" class="input" square filled label="Cód. de segurança" />
+
+      <q-input color="orange-10" v-model="stateField" class="input" square filled label="Parcelamento" />
       <div v-for="(Client) in Clients" :key="Client.id">
         <client :Client="Client" @delet="deletUser"/>
     </div>
   </div>
 
 
+  <br><div class="q-pa-md">
+
+    <div class="q-gutter-sm">
+      <q-checkbox left-label v-model="left" label="Salvar informações para próximas compras" />
+    </div>
+    <div class="q-gutter-sm">
+      <q-checkbox left-label v-model="left" label="Definir o cartão cadastrado como padrão" />
+    </div>
+
+    <div class="q-px-sm">
+    </div>
+  </div>
 
 
+
+
+<br><br><br><div>
 <div id="buttom-back">
 
 
@@ -58,6 +90,7 @@
 
 </div>
 <div @click="registerUser" id="buttom"><q-btn position: color="orange-10" label="Cadastrar"/></div>
+</div>
   </body>
 </template>
 
@@ -136,8 +169,14 @@ export default {
         deletUser: function($event) {
       console.log("me deleto porra");
       console.log($event);
-      
 
+
+
+    }
+  },
+  filters: {
+    capsLock: function(value){
+      return value.toUpperCase
     }
   }
 };
@@ -163,7 +202,7 @@ margin-bottom: 3vh;
 }
 #Sub-title {
 color:black;
-text-align: center;
+text-align: left;
 
 
 }
@@ -182,8 +221,8 @@ text-align: center;
 .q-gutter-md {
   color:orangered;
   text-transform: uppercase;
- padding-left: 25%;
- padding-right: 25%;
+
+ padding-right: 70%;
  font-family: 'Signika', sans-serif;
 
 }
