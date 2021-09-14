@@ -11,6 +11,8 @@
 
       <br><br><h5 id="Sub-title">Dados do usuário</h5>
 
+       <q-btn color="primary" label="proximo" />
+
       <q-input type="text" placeholder="name" color="orange-10" v-model="nameField" class="input" square filled label="Nome"/>
 
       <q-input color="orange-10" v-model="lastNameField" class="input" square filled label="Sobrenome" />
@@ -238,12 +240,12 @@ text-align: left;
 }
 
 #buttom-back {
-  margin-left: 5%;
+  margin-left: 25%;
 
 }
 
 #buttom-up {
-  margin-left: 70%;
+  margin-left: 25%;
 
 
 }
@@ -256,6 +258,8 @@ text-align: left;
 #error {
   color: red;
 }
+
+
 
 
 
